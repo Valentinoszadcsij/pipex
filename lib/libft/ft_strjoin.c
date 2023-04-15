@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: voszadcs <voszadcs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 16:56:55 by voszadcs          #+#    #+#             */
-/*   Updated: 2023/04/14 05:45:41 by voszadcs         ###   ########.fr       */
+/*   Created: 2022/10/28 06:27:33 by voszadcs          #+#    #+#             */
+/*   Updated: 2023/04/14 05:39:08 by voszadcs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-char	*path_join(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	int		i;
@@ -24,14 +24,12 @@ char	*path_join(char const *s1, char const *s2)
 	size1 = ft_strlen((char *)s1);
 	size2 = ft_strlen((char *)s2);
 	i = 0;
-	str = malloc(size1 + size2 + 2);
+	str = malloc(size1 + size2 + 1);
 	if (!str)
 		return (NULL);
 	while (*s1 != 0)
 	{
 		str[i++] = *(char *)s1++;
-		if (i == size1)
-			str[i++] = '/';
 	}
 	while (*s2 != 0)
 	{

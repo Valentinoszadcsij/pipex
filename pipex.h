@@ -19,9 +19,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdbool.h>
+# include "lib/ft_printf/ft_printf.h"
+# include "lib/libft/libft.h"
 
-char	**ft_split(char const *s, char c);
-char	*ft_strnstr(const char *haystack, const char *needle, int n);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*path_join(char const *s1, char const *s2);
+char	**ft_split_command(char *cmd);
 
 #endif
