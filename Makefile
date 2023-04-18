@@ -1,11 +1,11 @@
 
 NAME:=	pipex
-SRC:= 	pipex.c utils.c parser.c
+SRC:= 	pipex.c utils.c parser.c ft_split_with_quotes.c procs.c
 		
 OBJ:=	$(SRC:.c=.o)
 
 FLAGS:=	-Wall -Werror -Wextra
-#FLAGS+= -g3 -fsanitize=address
+# FLAGS+= -g3 -fsanitize=address
 
 CC:= gcc
 

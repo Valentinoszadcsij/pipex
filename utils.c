@@ -6,7 +6,7 @@
 /*   By: voszadcs <voszadcs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 16:56:55 by voszadcs          #+#    #+#             */
-/*   Updated: 2023/04/14 05:45:41 by voszadcs         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:12:56 by voszadcs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,32 @@ char	*path_join(char const *s1, char const *s2)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+void	error_file(char *s, int fd)
+{
+	ft_putstr_fd("pipex: ", fd);
+	ft_putstr_fd(s, fd);
+	ft_putstr_fd(": No such file or directory\n", 2);
+}
+
+void	error_cmd(char *s, int fd)
+{
+	ft_putstr_fd("pipex: ", fd);
+	ft_putstr_fd(s, fd);
+	ft_putstr_fd(": command not found\n", 2);
+}
+
+void	dalloc(char **str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i] != NULL)
+	{	
+		free(str[i]);
+		str[i] = NULL;
+	}
+	free(str);
+	str = NULL;
 }

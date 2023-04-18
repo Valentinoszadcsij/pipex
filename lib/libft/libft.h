@@ -6,7 +6,7 @@
 /*   By: voszadcs <voszadcs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 16:54:25 by voszadcs          #+#    #+#             */
-/*   Updated: 2023/04/15 19:55:43 by voszadcs         ###   ########.fr       */
+/*   Updated: 2023/04/18 21:14:01 by voszadcs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ char	**ft_split(char const *s, char c);
 void	ft_putstr_fd(char *s, int fd);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
-
 
 #endif
