@@ -12,7 +12,7 @@
 
 #include "pipex.h"
 
-int	func(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		fd[2];
 	pid_t	pid[2];
@@ -39,8 +39,8 @@ int	func(int argc, char **argv)
 	return (0);
 }
 
-int main (int argc, char *argv[])
-{
-	func(argc, argv);
-	system("leaks pipex");
-}
+// int main (int argc, char *argv[])
+// {
+// 	func(argc, argv);
+// 	system("leaks pipex");
+// }

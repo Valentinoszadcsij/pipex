@@ -14,13 +14,12 @@
 # define PIPEX_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <string.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <errno.h>
-# include "lib/ft_printf/ft_printf.h"
 # include "lib/libft/libft.h"
 
 extern char	**environ;

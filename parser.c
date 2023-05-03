@@ -6,7 +6,7 @@
 /*   By: voszadcs <voszadcs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 19:21:39 by voszadcs          #+#    #+#             */
-/*   Updated: 2023/04/18 21:28:59 by voszadcs         ###   ########.fr       */
+/*   Updated: 2023/04/21 18:23:46 by voszadcs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static char	**env_true(char *env_path, char **cmd)
 	int		i;
 	char	**split_path;
 	char	*full_path;
-	char	*temp;
 
 	i = 0;
 	split_path = ft_split(env_path + 5, ':');
@@ -59,6 +58,7 @@ static char	**env_true(char *env_path, char **cmd)
 		{	
 			free(cmd[0]);
 			cmd[0] = full_path;
+			dalloc(split_path);
 			return (cmd);
 		}
 		free(full_path);
@@ -75,6 +75,7 @@ static char	**env_false(char **cmd)
 	full_path = path_join("/bin", cmd[0]);
 	if (access(full_path, F_OK) == 0)
 	{	
+		free(cmd[0]);
 		cmd[0] = full_path;
 		return (cmd);
 	}
@@ -82,6 +83,7 @@ static char	**env_false(char **cmd)
 	full_path = path_join("/usr/bin", cmd[0]);
 	if (access(full_path, F_OK) == 0)
 	{	
+		free(cmd[0]);
 		cmd[0] = full_path;
 		return (cmd);
 	}

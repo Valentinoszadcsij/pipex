@@ -6,7 +6,7 @@
 /*   By: voszadcs <voszadcs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 07:01:12 by voszadcs          #+#    #+#             */
-/*   Updated: 2023/04/18 21:13:00 by voszadcs         ###   ########.fr       */
+/*   Updated: 2023/04/22 01:09:36 by voszadcs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	procs(int *fd, char **argv, pid_t *pid)
 	cmd1_path = check_cmd(argv[2]);
 	cmd2_path = check_cmd(argv[3]);
 	if (pipe(pipe_fd) == -1)
-		return (perror("Error"), EXIT_FAILURE);
+		return (perror("Error: "), EXIT_FAILURE);
 	pid[0] = fork();
 	if (pid[0] == 0 && cmd1_path != NULL && fd[0] > -1)
 		proc1(cmd1_path, pipe_fd, fd[0]);
@@ -60,5 +60,9 @@ int	procs(int *fd, char **argv, pid_t *pid)
 		proc2(cmd2_path, pipe_fd, fd[1]);
 	else if (pid[1] == -1 || pid[1] == 0)
 		exit (127);
+	if (cmd1_path)
+		dalloc(cmd1_path);
+	if (cmd2_path)
+		dalloc(cmd2_path);
 	return (close(pipe_fd[0]), close(pipe_fd[1]), EXIT_SUCCESS);
 }

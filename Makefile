@@ -13,8 +13,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make re -C lib/libft
-	make re -C lib/ft_printf
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ) lib/ft_printf/ft_printf.a lib/libft/libft.a
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ) lib/libft/libft.a
 %.o: %.c
 	$(CC) -c $(FLAGS) $^ -o $@
 clean:
